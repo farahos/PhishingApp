@@ -66,6 +66,6 @@ export const loginUser = async (req, res) => {
 
     }catch(error){
         console.log("Error in logging in user:", error);
-        res.status(400).send({message: "Error in logging in user"});
+        res.status(400).send({message: "Error in logging in user", error});
     }
 }

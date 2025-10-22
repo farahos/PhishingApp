@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import { useUser } from "./hooks/useUser";
+import Home from "./components/Home";
 
 export default function App() {
   const { user } = useUser();
@@ -12,7 +13,7 @@ export default function App() {
   if (!user) {
     return (
       <>
-     <Header />
+      <Header/>
       <Outlet />
       </>
     )

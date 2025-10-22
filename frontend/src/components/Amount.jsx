@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Logout = () => {
+const Amount = () => {
   return (
     <div>
-      
+      soo dhawaw  
     </div>
   )
 }
 
-export default Logout
+export default Amount

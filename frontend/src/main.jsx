@@ -13,13 +13,9 @@ import Login from './pages/Login.jsx';
 
 import Register from './pages/Register.jsx';
 import Home from './components/Home.jsx';
-import Booked from './components/Booked.jsx';
-import EditPost from './components/EditPost.jsx';
+import Amount from './components/Amount.jsx';
 import AdminDashboard from './admin/AdminDashboard.jsx';
-import AddBook from './admin/AddBook.jsx';
-import ViewBook from './admin/ViewBook.jsx';
-import Books from './components/Books.jsx';
-import PostDetail from './components/PostDetail.jsx';
+
 
 
 
@@ -28,28 +24,17 @@ const router = createBrowserRouter([
   {
     path: "/", element: <App/>,
     children:[
-      
+      { path: '/Home', 
+          element: <Home /> },
         { path: '/login', 
           element: <Login/> },
             { path: '/Register', 
           element: <Register/> },
 
-        { path: '/Home', 
-          element: <Home /> },
-         { path: '/edit/:id', 
-          element: <EditPost /> },
-          { path: '/Booked', 
-          element: <Booked /> },
-          { path: '/Books', 
-          element: <Books /> },
-           { path: '/admin-dashboard', 
-          element: <AdminDashboard /> },
-           { path: '/addbook', 
-          element: <AddBook /> },
-           { path: '/viewbook', 
-          element: <ViewBook /> },
-           { path: '/post/:id', 
-          element: <PostDetail /> },
+        
+          { path: '/admin-dashboard', 
+          element: <AdminDashboard /> }
+          
 
         
 

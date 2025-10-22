@@ -3,9 +3,8 @@ import { connect } from 'mongoose';
 import conectBD from './config/db.js';
 import { registerUser } from './controller/UserController.js';
 import userRouter from './routes/UserRoute.js';
-import postRouter from './routes/PostRoute.js';
 import cookieParser from 'cookie-parser';
-
+import cardsRoute from './routes/cardRoute.js'
 const app = express();
 const PORT = 8000
 
@@ -13,7 +12,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/api/user', userRouter);
-app.use('/api/post', postRouter);
+app.use("/api/cards", cardsRoute);
+
+
 
 conectBD();
 app.listen(PORT ,()=>{

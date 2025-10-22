@@ -6,3 +6,7 @@
 /* Vite sax ah: */
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
