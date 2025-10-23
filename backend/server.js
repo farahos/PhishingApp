@@ -11,11 +11,15 @@ import cors from 'cors'
 const app = express();
 const PORT = 8000
 
+// ama haddii aad rabto origins badan:
+const allowed = ['https://phishing-h4is.onrender.com', 'https://another.app'];
 app.use(cors({
-  origin: 'https://phishing-h4is.onrender.com', // frontend origin
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true // haddii aad isticmaalayso cookies / credentials
+  origin: function(origin, cb){
+    if(!origin) return cb(null, true); // allow non-browser tools
+    if(allowed.indexOf(origin) !== -1) cb(null, true);
+    else cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true
 }));
 
 app.use(express.json());
