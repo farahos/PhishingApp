@@ -9,7 +9,7 @@ function App() {
   const fetchCards = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/cards');
+      const response = await fetch('https://phishingapp-2iom.onrender.com/api/cards');
       const result = await response.json();
       
       if (result.success) {
