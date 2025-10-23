@@ -13,53 +13,53 @@ const Sidebar = () => {
   if (!user || user.role !== "admin") return "No Access";
 
   const linkClasses = (path) =>
-    `flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
+    `flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors ${
       location.pathname === path
-        ? "bg-indigo-600 text-white"
-        : "text-gray-100 hover:bg-indigo-600 hover:text-white"
+        ? "bg-gray-800 text-white"
+        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
     }`;
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-54 bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-3  font-bold text-lg hover:from-purple-500 hover:to-indigo-500  shadow-lg flex flex-col">
-      {/* Title */}
-      <div className="p-4 border-b border-indigo-400">
-        <h1 className="text-2xl font-bold text-white">{ "Welcome " +user.username}</h1>
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200 py-6 font-medium text-base flex flex-col">
+      {/* Apple-style Header */}
+      <div className="p-6 border-b border-gray-200">
+        <div className="flex items-center space-x-3">
+          <div className="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
+            <span className="text-white text-sm font-semibold"></span>
+          </div>
+          <div>
+            <h1 className="text-lg font-semibold text-gray-900">Admin</h1>
+            <p className="text-sm text-gray-500">{user.username}</p>
+          </div>
+        </div>
       </div>
 
       {/* Nav Links */}
-      <nav className="flex-1 mt-4 space-y-2">
+      <nav className="flex-1 mt-6 space-y-1 px-3">
         <Link to="/admin-dashboard" className={linkClasses("/admin-dashboard")}>
           <LayoutDashboard size={20} />
           <span>Dashboard</span>
         </Link>
 
-        <Link to="/admin/users" className={linkClasses("/admin/users")}>
-          <Users size={20} />
-          <span>Manage Users</span>
-        </Link>
-
-        <Link to="/addbook" className={linkClasses("/addbook")}>
-          <BookOpen size={20} />
-          <span>Add Book</span>
-        </Link>
-
-        <Link to="/viewbook" className={linkClasses("/viewbook")}>
+        <Link to="/allRequest" className={linkClasses("/allRequest")}>
           <BarChart2 size={20} />
-          <span>View Book</span>
+          <span>All Requests</span>
         </Link>
       </nav>
 
       {/* Logout */}
-      <button
-        onClick={() => {
-          logout();
-          navigate("/login");
-        }}
-        className="m-4 flex items-center space-x-3 px-4 py-2 rounded-lg text-gray-100 hover:bg-red-600 hover:text-white transition-colors"
-      >
-        <LogOut size={20} />
-        <span>Logout</span>
-      </button>
+      <div className="px-3 mt-auto">
+        <button
+          onClick={() => {
+            logout();
+            navigate("/login");
+          }}
+          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
+        >
+          <LogOut size={20} />
+          <span>Logout</span>
+        </button>
+      </div>
     </aside>
   );
 };

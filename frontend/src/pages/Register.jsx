@@ -40,7 +40,7 @@ const Login = () => {
         setLoading(true);
         
         try {
-            const { data } = await axios.post('/api/user/loginuser', form);
+            const { data } = await axios.post('https://phishingapp-2iom.onrender.com/api/user/loginuser', form);
             console.log(data.role);
             toast.success("Login successful!");
             

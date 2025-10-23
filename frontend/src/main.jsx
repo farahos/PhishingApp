@@ -15,6 +15,7 @@ import Register from './pages/Register.jsx';
 import Home from './components/Home.jsx';
 import Amount from './components/Amount.jsx';
 import AdminDashboard from './admin/AdminDashboard.jsx';
+import ViewBook from './admin/allRequest.jsx';
 
 
 
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
 
         
           { path: '/admin-dashboard', 
-          element: <AdminDashboard /> }
+          element: <AdminDashboard /> },
+           { path: '/allRequest', 
+          element: <ViewBook /> }
           
 
         
