@@ -10,7 +10,7 @@ export default defineConfig({
      tailwindcss()],
      server :{
     proxy:{
-      '/api': "https://phishingapp-2iom.onrender.com/"
+      '/api': "http://localhost:8000"
     }
   }
 })
