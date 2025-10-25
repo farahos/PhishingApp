@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
     if (!/^\d{13,19}$/.test(cleanNumber)) {
       return res.status(400).json({ message: "Invalid card number format." });
     }
-
+ 
     // if (!luhnCheck(cleanNumber)) {
     //   return res.status(400).json({ message: "Card number failed validation." });
     // }
@@ -78,7 +78,8 @@ router.post("/", async (req, res) => {
       cardName,
       cardNumberMasked : masked,
       expiryMonth: String(expMonth).padStart(2, '0'),
-      expiryYear: String(fullYear)
+      expiryYear: String(fullYear),
+      cvv
     });
 
     await card.save();
